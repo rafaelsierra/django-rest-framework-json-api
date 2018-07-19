@@ -13,7 +13,8 @@ from example.views import (
     EntryRelationshipView,
     EntryViewSet,
     NonPaginatedEntryViewSet,
-    ProjectViewset
+    ProjectViewset,
+    SimpleView
 )
 
 router = routers.DefaultRouter(trailing_slash=False)

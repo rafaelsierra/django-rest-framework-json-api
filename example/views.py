@@ -9,14 +9,15 @@ from rest_framework_json_api.pagination import PageNumberPagination
 from rest_framework_json_api.utils import format_drf_errors
 from rest_framework_json_api.views import ModelViewSet, RelationshipView
 
-from example.models import Author, Blog, Comment, Company, Entry, Project
+from example.models import Author, Blog, Comment, Company, Entry, Project, SimpleModel
 from example.serializers import (
     AuthorSerializer,
     BlogSerializer,
     CommentSerializer,
     CompanySerializer,
     EntrySerializer,
-    ProjectSerializer
+    ProjectSerializer,
+    SimpleSerializer
 )
 
 HTTP_422_UNPROCESSABLE_ENTITY = 422
@@ -138,3 +139,8 @@ class CommentRelationshipView(RelationshipView):
 class AuthorRelationshipView(RelationshipView):
     queryset = Author.objects.all()
     self_link_view_name = 'author-relationships'
+
+
+class SimpleView(ModelViewSet):
+    queryset = SimpleModel.objects.all()
+    serializer_class = SimpleSerializer

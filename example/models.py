@@ -140,3 +140,7 @@ class Company(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class SimpleModel(models.Model):
+    a = models.CharField(max_length=10)

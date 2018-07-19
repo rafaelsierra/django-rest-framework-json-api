@@ -16,6 +16,7 @@ from example.models import (
     Entry,
     Project,
     ResearchProject,
+    SimpleModel,
     TaggedItem
 )
 
@@ -227,3 +228,10 @@ class CompanySerializer(serializers.ModelSerializer):
         model = Company
         if version.parse(rest_framework.VERSION) >= version.parse('3.3'):
             fields = '__all__'
+
+
+class SimpleSerializer(serializers.ModelSerializer):
+    b = serializers.CharField(source='a')
+    class Meta:
+        model = SimpleModel
+        fields = ['b']

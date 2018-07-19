@@ -233,3 +233,15 @@ def test_patch_allow_field_type(author, author_type_factory, client):
     response = client.patch(url, data=data)
 
     assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_post_with_renamed_field(client):
+    url = reverse('simple-list')
+    data = {
+        'data': {
+            'b': 'c',
+            'type': 'simpleModels'
+        }
+    }
+    assert client.post(url, data).status_code == 201

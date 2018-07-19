@@ -13,7 +13,8 @@ from example.views import (
     EntryRelationshipView,
     EntryViewSet,
     NonPaginatedEntryViewSet,
-    ProjectViewset
+    ProjectViewset,
+    SimpleView
 )
 
 router = routers.DefaultRouter(trailing_slash=False)
@@ -25,6 +26,7 @@ router.register(r'authors', AuthorViewSet)
 router.register(r'comments', CommentViewSet)
 router.register(r'companies', CompanyViewset)
 router.register(r'projects', ProjectViewset)
+router.register(r'simple', SimpleView, base_name='simple')
 
 # for the old tests
 router.register(r'identities', Identity)
